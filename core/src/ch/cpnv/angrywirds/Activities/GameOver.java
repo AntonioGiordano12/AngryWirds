@@ -24,7 +24,6 @@ public class GameOver extends GameActivity {
 
     }
 
-
     @Override
     protected void handleInput() {
         if (Gdx.input.justTouched())
@@ -35,8 +34,6 @@ public class GameOver extends GameActivity {
             AngryWirds.gameActivityManager.pop(); // welcome
         }
     }
-
-
 
     @Override
     public void update(float dt) {

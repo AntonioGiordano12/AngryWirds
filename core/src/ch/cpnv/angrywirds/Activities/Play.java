@@ -37,7 +37,7 @@ public class Play extends GameActivity implements InputProcessor {
     private static final int BOARD_HEIGHT = 200;
     private static final int BOARD_OFFSET = 50; // from left edge
     private static final float ELASTICITY = 6f;
-    private final int SCORE_BUMP_SUCCESS = 100;
+    private final int SCORE_BUMP_SUCCESS = 7;
     private final int SCORE_BUMP_FAIL = 1;
     private final int TNT_PENALTY = 5;
 
