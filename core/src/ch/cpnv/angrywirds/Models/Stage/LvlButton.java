@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 import ch.cpnv.angrywirds.Models.Data.Language;
-import ch.cpnv.angrywirds.Models.Stage.Pig;
 
 public class LvlButton { // Similaire à une bubble, affiche comme un boutton à l'écran
 
@@ -15,7 +14,6 @@ public class LvlButton { // Similaire à une bubble, affiche comme un boutton à
     private static final String PICNAME = "button.png";
     private static final int WIDTH = 250;
     private static final int HEIGHT = 100;
-    private static final int BUBBLE_OFFSET = 20; // to center the spike on the head
     private static final int TEXT_OFFSET_X = 40; // to place the text inside the bubble
     private static final int TEXT_OFFSET_Y = 80;
     private static final int SCORE_OFFSET_X = 300; // to place the text inside the bubble
@@ -25,7 +23,6 @@ public class LvlButton { // Similaire à une bubble, affiche comme un boutton à
     public Sprite sprite;
     private BitmapFont font;
     private String message;
-    public Language l;
     private int id;
     private String result;
     private int assign;
@@ -39,7 +36,6 @@ public class LvlButton { // Similaire à une bubble, affiche comme un boutton à
         font.setColor(Color.BLACK);
         font.getData().setScale(2);
         this.id = id;
-        this.l = l;
         this.result = result;
         this.assign = assignment;
     }

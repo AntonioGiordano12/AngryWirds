@@ -103,10 +103,10 @@ public class VocabularyChoice extends GameActivity implements InputProcessor {
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        Vector3 pointTouched = camera.unproject(new Vector3(screenX, screenY, 0));
+        Vector3 pointTouched = camera.unproject(new Vector3(screenX, screenY, 0)); // Si on click sur un LvlButton
         for (LvlButton btn : buttons ) {
             if (btn.getSprite().getBoundingRectangle().contains(new Vector2(pointTouched.x,pointTouched.y))) {
-                AngryWirds.gameActivityManager.push(new Play(btn.getLvlid(), btn.getAssign())); //Play()
+                AngryWirds.gameActivityManager.push(new Play(btn.getLvlid(), btn.getAssign())); // On lance le voc en correspondance
             }
         }
         return false;

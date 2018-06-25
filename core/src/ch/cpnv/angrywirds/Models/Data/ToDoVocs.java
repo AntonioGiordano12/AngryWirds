@@ -1,6 +1,6 @@
 package ch.cpnv.angrywirds.Models.Data;
 
-public class ToDoVocs { // Tous les assignements qu'on a
+public class ToDoVocs { // Tous les assignements qu'on a (dans le cas ou plus de voc sont présent que ceux que l'on doit faire)
 
     public int vocId;
     public String title;

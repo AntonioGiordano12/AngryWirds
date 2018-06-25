@@ -37,7 +37,7 @@ public class Play extends GameActivity implements InputProcessor {
     private static final int BOARD_HEIGHT = 200;
     private static final int BOARD_OFFSET = 50; // from left edge
     private static final float ELASTICITY = 6f;
-    private final int SCORE_BUMP_SUCCESS = 7;
+    private final int SCORE_BUMP_SUCCESS = 100;
     private final int SCORE_BUMP_FAIL = 1;
     private final int TNT_PENALTY = 5;
 
@@ -62,12 +62,12 @@ public class Play extends GameActivity implements InputProcessor {
     private int usedID;
     private int assignID;
 
-    public Play(int id, int assign){
+    public Play(int id, int assign){  // Id du vocabulaire, Id de l'assignement
         super();
         assignID = assign;
         usedID = id;
         babble = new ArrayList<Bubble>();
-        vocabulary = VocProvider.vocabulary.get(id-1);
+        vocabulary = VocProvider.vocabulary.get(id-1); // On récupére le bon voc selon le tableau (index start = 0)
 
         background = new Texture("background.jpg");
         slingshot1 = new Texture("slingshot1.png");
@@ -138,15 +138,12 @@ public class Play extends GameActivity implements InputProcessor {
             }
         }
 
-
-//                Gdx.app.log("touch", "objet : " + p.getWord().getId() + " -- board : " + board.getWordId());
-
         if (hit != null) {
             String c = hit.getClass().getSimpleName();
 
             if(hit.getClass() == Wasp.class){
                 scoreBoard.scoreChange(-100);
-                AngryWirds.gameActivityManager.push(new GameOver(assignID));
+                AngryWirds.gameActivityManager.push(new GameOver(assignID)); // On passe le voc avec lequel on a jouer
             }
 
             if (c.equals("Tnt")){
@@ -182,7 +179,7 @@ public class Play extends GameActivity implements InputProcessor {
         // --------- Scoreboard
         scoreBoard.update(dt);
         if (scoreBoard.gameOver())
-            AngryWirds.gameActivityManager.push(new GameOver(assignID));
+            AngryWirds.gameActivityManager.push(new GameOver(assignID)); // On passe le voc avec lequel on a jouer
     }
 
     @Override

@@ -40,7 +40,6 @@ public class GameOver extends GameActivity {
 
     @Override
     public void update(float dt) {
-
     }
 
     @Override
