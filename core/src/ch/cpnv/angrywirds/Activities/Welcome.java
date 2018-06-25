@@ -57,9 +57,13 @@ public class Welcome extends GameActivity  {
         if (splashTime > 0)
             splashTime -= dt;
         else
-        if (VocProvider.status == VocProvider.Status.ready) {
-            AngryWirds.gameActivityManager.push(new Play());
+        if (VocProvider.status == VocProvider.Status.loaded) {
+            AngryWirds.gameActivityManager.push(new VocabularyChoice());
         }
+
+//        if (VocProvider.status == VocProvider.Status.ready) {
+//            AngryWirds.gameActivityManager.push(new Play());
+//        }
     }
 
 

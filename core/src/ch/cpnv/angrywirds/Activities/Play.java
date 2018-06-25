@@ -59,12 +59,15 @@ public class Play extends GameActivity implements InputProcessor {
     private Queue<Touch> actions;
     private Vocabulary vocabulary;
 
+    private int usedID;
+    private int assignID;
 
-    public Play(){
+    public Play(int id, int assign){
         super();
-
+        assignID = assign;
+        usedID = id;
         babble = new ArrayList<Bubble>();
-        vocabulary = VocProvider.vocabulary.get(0);
+        vocabulary = VocProvider.vocabulary.get(id-1);
 
         background = new Texture("background.jpg");
         slingshot1 = new Texture("slingshot1.png");
@@ -143,7 +146,7 @@ public class Play extends GameActivity implements InputProcessor {
 
             if(hit.getClass() == Wasp.class){
                 scoreBoard.scoreChange(-100);
-                AngryWirds.gameActivityManager.push(new GameOver());
+                AngryWirds.gameActivityManager.push(new GameOver(assignID));
             }
 
             if (c.equals("Tnt")){
@@ -179,7 +182,7 @@ public class Play extends GameActivity implements InputProcessor {
         // --------- Scoreboard
         scoreBoard.update(dt);
         if (scoreBoard.gameOver())
-            AngryWirds.gameActivityManager.push(new GameOver());
+            AngryWirds.gameActivityManager.push(new GameOver(assignID));
     }
 
     @Override

@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import ch.cpnv.angrywirds.AngryWirds;
 import ch.cpnv.angrywirds.Models.Stage.ScoreBoard;
 import ch.cpnv.angrywirds.Models.Stage.Title;
+import ch.cpnv.angrywirds.Providers.VocProvider;
 
 
 public class GameOver extends GameActivity {
@@ -13,12 +14,16 @@ public class GameOver extends GameActivity {
     private Texture background;
     private Title title;
 
-    public GameOver()
+    public GameOver(int usedId)
     {
         super();
         background = new Texture(Gdx.files.internal("background.png"));
-        title = new Title("Game Over\n score: "+ ScoreBoard.score);
+        VocProvider.submitResults(usedId);
+        title = new Title("Game Over\n score: "+ ScoreBoard.score + "\n" + VocProvider.finalStatus);
+
+
     }
+
 
     @Override
     protected void handleInput() {
@@ -26,6 +31,8 @@ public class GameOver extends GameActivity {
         {
             AngryWirds.gameActivityManager.pop(); // game over
             AngryWirds.gameActivityManager.pop(); // play
+            AngryWirds.gameActivityManager.pop(); // select
+            AngryWirds.gameActivityManager.pop(); // welcome
         }
     }
 
